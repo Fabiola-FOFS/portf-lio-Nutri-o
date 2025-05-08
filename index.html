@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="styles.css">
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio de Nutrição - Fabíola Oliveira </title>
+  <title>Portfólio de Nutrição - Fabíola Oliveira</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-  <header>
-    <h1>Portfólio</h1>
-    <h2>Fabíola Oliveira</h2>
-    <p>Graduanda de Nutrição</p>
-  </header>
+    
+    <header>
+        <div class="titulo">Portfólio</div>
+        <h1>Fabíola Oliveira</h1>
+        <p>Graduanda de Nutrição</p>
+      </header>
 
   <button class="menu-toggle" onclick="toggleMenu()">
     <i id="menu-icon" data-feather="menu"></i>
@@ -30,18 +31,19 @@
     <a href="(link-material-2)" target="_blank"><i data-feather="image" data-tooltip="EAN - Material 2"></i>EAN - Material 2</a>
     <a href="(link-material-3)" target="_blank"><i data-feather="image" data-tooltip="EAN - Material 3"></i>EAN - Material 3</a>
   </nav>
+
+  <!-- SLIDER COM IMAGENS EM MODO COVERFLOW PARA FOTOS RETRATO -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="imagens/Imagem do WhatsApp de 2025-04-26 à(s) 15.39.13_80ad0f89.jpg" alt="Estágio 1"></div>
-        <div class="swiper-slide"><img src="imagens/Imagem do WhatsApp de 2025-04-26 à(s) 15.39.16_89635ca9.jpg" alt="Estágio 2"></div>
-        <div class="swiper-slide"><img src="imagens/Imagem do WhatsApp de 2025-04-26 à(s) 15.39.22_53db6895.jpg" alt="Estágio 3"></div>
-      </div>
+      <div class="swiper-slide"><img src="imagens/Imagem do WhatsApp de 2025-04-26 à(s) 15.39.13_80ad0f89.jpg" alt="foto 1"></div>
+      <div class="swiper-slide"><img src="imagens/Imagem do WhatsApp de 2025-04-26 à(s) 15.39.16_89635ca9.jpg" alt="foto 2"></div>
+      <div class="swiper-slide"><img src="imagens/Imagem do WhatsApp de 2025-04-26 à(s) 15.39.22_53db6895.jpg" alt="foto 3"></div>
+      <div class="swiper-slide"><img src="imagens/Imagem do WhatsApp de 2025-04-26 à(s) 15.39.24_e5cf5829.jpg" alt="foto 4"></div>
     </div>
+    <div class="swiper-pagination"></div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
-
   <script>
     const menu = document.getElementById('menu');
     const menuIcon = document.getElementById('menu-icon');
@@ -53,15 +55,6 @@
     }
 
     feather.replace();
-
-    new Swiper('.swiper', {
-      loop: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
-      effect: 'fade'
-    });
   </script>
 </body>
 </html>
