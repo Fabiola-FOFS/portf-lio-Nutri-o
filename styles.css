@@ -63,25 +63,25 @@ body::before {
     position: fixed;
     top: 160px;
     left: 10px;
-    background: #f7d6e0;
+    background: #5c4b5f;
     border: none;
     border-radius: 5px;
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
     z-index: 1002;
   }
   
   nav {
     position: fixed;
-    top: 200px;
+    top: 250px;
     left: 0;
     background: rgba(255,255,255,0.95);
-    padding: 10px;
+    padding: 5px;
     border-radius: 0 8px 8px 0;
     z-index: 1001;
     transition: transform 0.3s ease;
-    width: 230px;
-    transform: translateX(-250px);
+    width: 450px;
+    transform: translateX(-450px);
   }
   
   nav.show {
@@ -93,7 +93,7 @@ body::before {
     align-items: center;
     gap: 8px;
     margin: 10px 0;
-    color: #5c5c8a;
+    color: #4e4e52;
     text-decoration: none;
     font-weight: bold;
     white-space: nowrap;
@@ -125,8 +125,6 @@ body::before {
     opacity: 1;
   }
 
-  /* Remova ou modifique estas regras */
-
 
 /* Slider centralizado e em modo retrato */
 .swiper {
@@ -150,7 +148,7 @@ body::before {
   width: auto;
   max-width: 300px;
   height: 500px;
-  transition: transform 0.4s ease;
+  /*transition: transform 0.4s ease;*/
 }
 
 .swiper-slide img {
@@ -158,7 +156,7 @@ body::before {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 40px 60px rgba(0, 0, 0, 0.2);
 }
 
 .swiper-slide-next,

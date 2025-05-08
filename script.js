@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         centeredSlides: true,
         slidesPerView: 'auto',
         autoplay: {
-          delay: 3000,
+          delay: 1000,
           disableOnInteraction: false
         },
         effect: 'coverflow',
