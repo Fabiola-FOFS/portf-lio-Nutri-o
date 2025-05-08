@@ -3,40 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio de Nutrição - Fabíola Oliveira F. Silva</title>
+    <title>Portfólio de Nutrição - Fabíola Oliveira</title>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9fb;
+            background: url('(caminho-da-imagem-de-fundo)') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 0;
             color: #333;
+            position: relative;
+            overflow-x: hidden;
+        }
+        #tsparticles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            top: 0;
+            left: 0;
         }
         header {
-            background: linear-gradient(90deg, #d8eefe, #f7d6e0, #d3d3d3);
+            background: linear-gradient(90deg, #f7d6e0, #d3d3d3);
             padding: 20px;
             text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
         header h1 {
             margin: 0;
             font-size: 2em;
             color: #444;
         }
+        .menu-mobile {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1002;
+            cursor: pointer;
+        }
+        nav {
+            position: fixed;
+            top: 150px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1001;
+        }
+        nav a {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: #5c5c8a;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 16px;
+        }
+        nav a:hover {
+            color: #333;
+        }
         .container {
-            padding: 20px;
+            padding: 120px 20px 20px 70px;
             max-width: 1200px;
             margin: auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease;
+            position: relative;
+            z-index: 1;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .section-title {
             font-size: 1.5em;
             margin-bottom: 10px;
             color: #5c5c8a;
         }
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .photo-gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
         .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 20px;
+            animation: fadeIn 1.5s ease;
         }
         .card {
             background-color: #fff;
@@ -44,10 +121,11 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             padding: 20px;
             text-align: center;
-            transition: 0.3s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
         .card img {
             max-width: 100%;
@@ -65,53 +143,162 @@
             padding: 20px;
             font-size: 0.9em;
             color: #888;
+            margin-top: 20px;
+        }
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #f7d6e0;
+            border: none;
+            border-radius: 8px;
+            color: #333;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #e6c5d0;
+            transform: scale(1.05);
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+            animation: fadeIn 2s ease;
+        }
+        .whatsapp-button img {
+            width: 60px;
+            height: 60px;
+        }
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+            .menu-mobile {
+                display: block;
+            }
+            .container {
+                padding: 100px 10px 20px 10px;
+            }
+            .photo-gallery img {
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
 </head>
-<body>
+<body id="top">
+<div id="tsparticles"></div>
     <header>
-        <h1>Fabíola Oliveira F. Silva - Portfólio de Nutrição</h1>
-        <p>Brasília - DF | +55 (61) 9 9321-7414 | qa.teste.fs@gmail.com</p>
-        <p><a href="https://www.linkedin.com/in/fabiola-nutri/" target="_blank">LinkedIn</a></p>
+        <h1>Portfólio de Nutrição</h1>
+        <h2>Fabíola Oliveira</h2>
+        <p>Graduanda de Nutrição</p>
+        <p>
+            <a class="btn" href="https://www.linkedin.com/in/fabiola-nutri/" target="_blank">LinkedIn</a>
+            <a class="btn" href="https://www.canva.com/design/DAGl2FWqL4I/qg9xSWxuqkamG9uVOkkahg/view?utm_content=DAGl2FWqL4I&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h4620365319" target="_blank">Baixar Currículo</a>
+        </p>
+        <div class="menu-mobile" onclick="toggleMenu()">
+            <i data-feather="menu"></i>
+        </div>
     </header>
 
-    <div class="container">
-        <h2 class="section-title">Artigos Científicos</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3>Artigo 1</h3>
-                <a href="(link-do-pdf-artigo-1)" target="_blank">Ver PDF</a>
-            </div>
-            <div class="card">
-                <h3>Artigo 2</h3>
-                <a href="(link-do-pdf-artigo-2)" target="_blank">Ver PDF</a>
-            </div>
-            <div class="card">
-                <h3>Artigo 3</h3>
-                <a href="(link-do-pdf-artigo-3)" target="_blank">Ver PDF</a>
-            </div>
-        </div>
+    <nav id="mobileMenu">
+        <a href="#artigos"><i data-feather="book"></i>Artigos</a>
+        <a href="#tcc"><i data-feather="file-text"></i>TCC</a>
+        <a href="#ean"><i data-feather="image"></i>EAN</a>
+    </nav>
 
-        <h2 class="section-title">Educação Alimentar e Nutricional (EAN)</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="(link-da-imagem-material-1)" alt="Material EAN 1">
-                <a href="(link-da-imagem-material-1)" target="_blank">Ver Material</a>
+    <div class="container">
+        <!-- Conteúdo do site permanece aqui -->
+        <div class="container">
+            <h2 class="section-title">Artigos de Estudo de Campo em Estágio</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3> Estágio em Saúde Coletiva</h3>
+                    <a href="https://www.canva.com/design/DAGl2yyrdJ4/vp20t1klQltivVvjzz5Yrw/view?utm_content=DAGl2yyrdJ4&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h8bc9a90b47" target="_blank">Ver</a>
+                </div>
+                <div class="card">
+                    <h3>Estágio em Alimentação Coletiva</h3>
+                    <a href="https://www.canva.com/design/DAGl262Ls-s/GNNxEfjYLoZEDoMHUu1Mhw/view?utm_content=DAGl262Ls-s&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha20f74f303" target="_blank">Ver</a>
+                </div>
+                <div class="card">
+                    <h3>Estagio em Nutrição Clinica/ em produção !aguarde!</h3>
+                    <a href="(link-do-pdf-artigo-3)" target="_blank">Ver</a>
+                </div>
             </div>
-            <div class="card">
-                <img src="(link-da-imagem-material-2)" alt="Material EAN 2">
-                <a href="(link-da-imagem-material-2)" target="_blank">Ver Material</a>
+            <h2 class="section-title">Artigos Cientificos</h2>
+            <div class="card-container">
+            <div class="card"> 
+                <h3>TCC</h3>
+                <a href="https://www.canva.com/design/DAGl3K2Jn4E/WJILYkTyG1tYschusvZrDw/view?utm_content=DAGl3K2Jn4E&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1404b07c4b" target="_blank">Ver</a>
             </div>
-            <div class="card">
-                <img src="(link-da-imagem-material-3)" alt="Material EAN 3">
-                <a href="(link-da-imagem-material-3)" target="_blank">Ver Material</a>
+    
             </div>
-            <!-- Adicione mais cards de EAN conforme necessário -->
+    
+            <h2 class="section-title">Educação Alimentar e Nutricional (EAN)</h2>
+            <div class="card-container">
+                
+    
+                </div>
+                <div class="card">
+                    <img src="(link-da-imagem-material-1)" alt="Material EAN 1">
+                    <a href="https://www.canva.com/design/DAGFUwF_Cfo/KhNZ1Xr35vE2bt5DR7LHVw/view?utm_content=DAGFUwF_Cfo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd2b37f4318" target="_blank">Ver Material</a>
+                </div>
+                <div class="card">
+                    <img src="(link-da-imagem-material-2)" alt="Material EAN 2">
+                    <a href="(link-da-imagem-material-2)" target="_blank">Ver Material</a>
+                </div>
+                <div class="card">
+                    <img src="(link-da-imagem-material-3)" alt="Material EAN 3">
+                    <a href="(link-da-imagem-material-3)" target="_blank">Ver Material</a>
+                </div>
+                <!-- Adicione mais cards de EAN conforme necessário -->
+            </div>
         </div>
     </div>
 
     <footer>
-        Fabíola Oliveira F. Silva - Todos os direitos reservados &copy; 2025
+        <a id="topo" class="btn" href="#top">Voltar ao Topo</a>
+        <p>Fabíola Oliveira F. Silva - Todos os direitos reservados &copy; 2025</p>
     </footer>
+
+    <a class="whatsapp-button" href="https://wa.me/5561993217414" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+    </a>
+
+<script>
+    feather.replace();
+
+    function toggleMenu() {
+        const menu = document.getElementById('mobileMenu');
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'block';
+        }
+    }
+
+    tsParticles.load("tsparticles", {
+        particles: {
+            number: { value: 15 },
+            size: { value: 20 },
+            move: { direction: "bottom", speed: 1 },
+            opacity: { value: 0.6 },
+            shape: {
+                type: "image",
+                image: [
+                    { src: "(link-da-imagem-de-vegetal-1)", width: 32, height: 32 },
+                    { src: "(link-da-imagem-de-vegetal-2)", width: 32, height: 32 }
+                ]
+            }
+        },
+        background: {
+            opacity: 0
+        }
+    });
+</script>
 </body>
 </html>
